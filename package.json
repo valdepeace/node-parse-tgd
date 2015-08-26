@@ -1,0 +1,14 @@
+{
+  "name": "node-parse-tgd",
+  "version": "0.0.1",
+  "description": "parse file bynary tachograf in json",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "andres carmona gil",
+  "license": "ISC",
+  "dependencies": {
+    "node-java": "^1.0.1"
+  }
+}
