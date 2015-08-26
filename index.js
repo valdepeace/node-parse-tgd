@@ -11,7 +11,9 @@ java.classpath.push("./lib-java/jackson-annotations-2.5.1.jar");
 java.classpath.push("./lib-java/jackson-core-2.5.1.jar");
 java.classpath.push("./lib-java/jackson-databind-2.5.1.jar");
 
-
+/*
+ * module.exports
+ */
 
 module.exports = function(buffer) {
     buffer.toByteArray = function () {
