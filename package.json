@@ -2,6 +2,11 @@
   "name": "node-parse-tgd",
   "version": "0.0.1",
   "description": "parse file bynary tachograf in json",
+  "keywords": "tgd,parse,file tacograf",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/negrero/node-parse-tgd"
+  },
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -9,6 +14,7 @@
   "author": "andres carmona gil",
   "license": "ISC",
   "dependencies": {
-    "node-java": "^1.0.1"
+    "java": "^0.5.4"
+
   }
 }

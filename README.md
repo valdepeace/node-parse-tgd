@@ -1,2 +1,3 @@
 # node-parse-tgd
-parse de ficheros tgd con node
+Parse binary files tachograf to tgd with node
+
