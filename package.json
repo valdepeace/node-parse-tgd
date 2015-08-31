@@ -1,6 +1,6 @@
 {
   "name": "node-parse-tgd",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "parse file bynary tachograf in json",
   "keywords": "tgd,parse,file tacograf",
   "repository": {
@@ -15,6 +15,5 @@
   "license": "ISC",
   "dependencies": {
     "java": "^0.5.4"
-
   }
 }
