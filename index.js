@@ -5,7 +5,6 @@
 
 var java = require("java");
 var path = require("path");
-var fs = require("fs");
 
 java.classpath.push("commons-lang3-3.1.jar");
 java.classpath.push("commons-io.jar");
