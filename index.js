@@ -17,9 +17,10 @@ java.classpath.push(path.resolve(__dirname, "./lib-java/jackson-databind-2.5.1.j
 
 /*
  * module.exports
+ * Export callback json of file tachograf
  */
 
-function tgd(buffer) {
+var file=function(buffer,cb) {
 
     buffer.toByteArray = function () {
         return Array.prototype.slice.call(this, 0)
@@ -28,16 +29,23 @@ function tgd(buffer) {
     var bytes = buffer.toByteArray();
     // Construyo el array de bytes de javascript a java
     var arraybyte = java.newArray("byte", bytes);
-    // Importo la clase para usarla
-    var FileTGD = java.import("org.tacografo.file.FileBlockTGD");
-    // La Instancio para que llame al constructor con el array de bytes java
-    var tgd = new FileTGD(arraybyte);
-    // por fin llamo al metodo getjson
 
-    var parsing = JSON.parse(tgd.getJsonSync());
+    java.newInstance("org.tacografo.file.FileBlockTGD", arraybyte, function (err, instancia) {
+        if (err) {
+            cb("Error build instance " + err, null);
+        } else {
+            java.callMethod(instancia, "getJson", function (err, result) {
+                if (err) {
+                    cb("Error getJson " + err, null);
+                } else {
+                    cb(null, result);
+                }
+            });
 
-    return parsing;
+
+        }
+    });
+
 };
 
-
-module.exports = tgd;
+module.exports = file;
