@@ -11,5 +11,6 @@
     <file url="file://$PROJECT_DIR$/../tacho-parse/node_modules/node-parse-tgd/index.js" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../tacho-parse/server/datasources.json" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/../tacho-parse/server/model-config.json" charset="UTF-8" />
+    <file url="PROJECT" charset="UTF-8" />
   </component>
 </project>
