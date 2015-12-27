@@ -1,19 +1,18 @@
 {
   "name": "node-parse-tgd",
-  "version": "0.0.4-1",
- 
+  "version": "1.0.0",
   "description": "parse file bynary tachograf in json",
   "keywords": "tgd,parse,file tacograf",
   "repository": {
     "type": "git",
     "url": "https://github.com/negrero/node-parse-tgd",
     "scripts": {
-        "publish-patch": "npm version patch && npm run push",
-        "publish-minor": "npm version minor && npm run push",
-        "publish-major": "npm version major && npm run push",
-        "push": "git push origin master --follow-tags && npm publish",
-        "prepublish": "echo \"do whatever\""
-      }
+      "publish-patch": "npm version patch && npm run push",
+      "publish-minor": "npm version minor && npm run push",
+      "publish-major": "npm version major && npm run push",
+      "push": "git push origin master --follow-tags && npm publish",
+      "prepublish": "echo \"do whatever\""
+    }
   },
   "main": "index.js",
   "scripts": {
