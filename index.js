@@ -30,7 +30,7 @@ var file=function(buffer,cb) {
     // Construyo el array de bytes de javascript a java
     var arraybyte = java.newArray("byte", bytes);
 
-    java.newInstance("org.tacografo.file.FileBlockTGD", arraybyte, function (err, instancia) {
+    java.newInstance("org.tacografo.file.FileTGD", arraybyte, function (err, instancia) {
         if (err) {
             cb("Error build instance " + err, null);
         } else {
