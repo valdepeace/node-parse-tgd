@@ -20,7 +20,7 @@ java.classpath.push(path.resolve(__dirname, "./lib-java/jackson-databind-2.5.1.j
  * Export callback json of file tachograf
  */
 
-var file=function(buffer,cb) {
+var file=function(buffer,callback) {
 
     buffer.toByteArray = function () {
         return Array.prototype.slice.call(this, 0)
@@ -32,13 +32,13 @@ var file=function(buffer,cb) {
 
     java.newInstance("org.tacografo.file.FileTGD", arraybyte, function (err, instancia) {
         if (err) {
-            cb("Error build instance " + err, null);
+            callback( "Error build instance " + err)
         } else {
             java.callMethod(instancia, "getJson", function (err, result) {
                 if (err) {
-                    cb("Error getJson " + err, null);
+                    callback("Error getJson " + err)
                 } else {
-                    cb(null, result);
+                    callback(null, JSON.parse(result))
                 }
             });
 
