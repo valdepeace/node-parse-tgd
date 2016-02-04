@@ -21,7 +21,7 @@ fs.readFile('C:\\Users\\negrero\\workspace\\tachograph-structure\\76e.TGD',
         }
     });
     */
-        fileTGD(data,function(err,data){
+        fileTGD(data,null,null,function(err,data){
             if(err){
                 console.log(err)
             }else{

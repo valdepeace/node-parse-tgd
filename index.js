@@ -20,7 +20,7 @@ java.classpath.push(path.resolve(__dirname, "./lib-java/jackson-databind-2.5.1.j
  * Export callback json of file tachograf
  */
 
-var file=function(buffer,callback) {
+var file=function(buffer,organizationId,filename,callback) {
 
     buffer.toByteArray = function () {
         return Array.prototype.slice.call(this, 0)
@@ -30,22 +30,41 @@ var file=function(buffer,callback) {
     // Construyo el array de bytes de javascript a java
     var arraybyte = java.newArray("byte", bytes);
 
-    java.newInstance("org.tacografo.file.FileTGD", arraybyte, function (err, instancia) {
-        if (err) {
-            callback( "Error build instance " + err)
-        } else {
-            java.callMethod(instancia, "getJson", function (err, result) {
-                if (err) {
-                    callback("Error getJson " + err)
-                } else {
-                    callback(null, JSON.parse(result))
-                }
-            });
+    if(typeof organizationId=='String'&& typeof filename=='String'){
+        java.newInstance("org.tacografo.file.FileTGD", arraybyte,organizationId,filename, function (err, instancia) {
+            if (err) {
+                callback( "Error build instance " + err)
+            } else {
+                java.callMethod(instancia, "getJson", function (err, result) {
+                    if (err) {
+                        callback("Error getJson " + err)
+                    } else {
+                        callback(null, JSON.parse(result))
+                    }
+                });
+            }
+        });
+    }else{
+        java.newInstance("org.tacografo.file.FileTGD", arraybyte, function (err, instancia) {
+            if (err) {
+                callback( "Error build instance " + err)
+            } else {
+                java.callMethod(instancia, "getJson", function (err, result) {
+                    if (err) {
+                        callback("Error getJson " + err)
+                    } else {
+                        var obj=JSON.parse(result)
+                        callback(null, obj)
+                    }
+                });
 
 
-        }
-    });
+            }
+        });
+    }
 
 };
+
+
 
 module.exports = file;
