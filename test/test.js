@@ -4,7 +4,7 @@
  */
 'use strict';
 var fs=require('fs')
-var fileTGD=require('../index')
+var FileTGD=require('../index')
 
 fs.readFile('C:\\Users\\negrero\\workspace\\tachograph-structure\\76e.TGD',
 //fs.readFile('path/file.tgd',
@@ -21,7 +21,9 @@ fs.readFile('C:\\Users\\negrero\\workspace\\tachograph-structure\\76e.TGD',
         }
     });
     */
-        fileTGD(data,null,null,function(err,data){
+     var fileTGD=new FileTGD()
+        fileTGD.lib('./lib-java')
+        fileTGD.parse(data,null,null,function(err,data){
             if(err){
                 console.log(err)
             }else{
