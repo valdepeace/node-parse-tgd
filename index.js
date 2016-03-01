@@ -23,6 +23,23 @@ module.exports = function () {
         java_lib.classpath.push(path.resolve(lib, "./lib-java/jackson-databind-2.5.1.jar"));
         module.javalib = java_lib
     }
+
+    module.parseSync=function(buffer, organizationId, filename){
+        var fileTGD=java.newInstanceSync("org.tacografo.file.FileTGD")
+        var buffer=buffer
+        buffer.toByteArray = function () {
+            return Array.prototype.slice.call(this, 0)
+        };
+        // Recupero el array de bytes del buffer
+        var bytes = buffer.toByteArray();
+        // Construyo el array de bytes de javascript a java
+        var arraybyte = java.newArray("byte", bytes);
+        //var data=java.callStaticMethodSync("getJson",arraybyte,selectOrganization.id, ctx.req.file.originalname,fileTGD)
+        fileTGD.setBufferSync(arraybyte,selectOrganization.id, ctx.req.file.originalname)
+        return fileTGD.getJsonSync()
+
+    }
+
     module.parse = function (buffer, organizationId, filename, callback) {
         if (module.javalib){
             var java = module.javalib
