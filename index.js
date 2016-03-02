@@ -5,7 +5,13 @@
 
 var java_default = require("java");
 var path = require("path");
-
+java_default.classpath.push(path.resolve(__dirname, "./lib-java/lib-tgd.jar"));
+java_default.classpath.push(path.resolve(__dirname, "./lib-java/jackson-annotations-2.5.1.jar"));
+java_default.classpath.push(path.resolve(__dirname, "./lib-java/jackson-core-2.5.1.jar"));
+java_default.classpath.push(path.resolve(__dirname, "./lib-java/jackson-databind-2.5.1.jar"));
+java_default.classpath.push("commons-lang3-3.1.jar");
+java_default.classpath.push("commons-io.jar");
+var java = java_default
 
 
 /*
@@ -25,6 +31,7 @@ module.exports = function () {
     }
 
     module.parseSync=function(buffer, organizationId, filename){
+
         var fileTGD=java.newInstanceSync("org.tacografo.file.FileTGD")
         var buffer=buffer
         buffer.toByteArray = function () {
@@ -35,7 +42,7 @@ module.exports = function () {
         // Construyo el array de bytes de javascript a java
         var arraybyte = java.newArray("byte", bytes);
         //var data=java.callStaticMethodSync("getJson",arraybyte,selectOrganization.id, ctx.req.file.originalname,fileTGD)
-        fileTGD.setBufferSync(arraybyte,selectOrganization.id, ctx.req.file.originalname)
+        fileTGD.setBufferSync(arraybyte,organizationId, filename)
         return fileTGD.getJsonSync()
 
     }
