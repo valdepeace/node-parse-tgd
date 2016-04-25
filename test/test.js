@@ -6,7 +6,7 @@
 var fs=require('fs')
 var FileTGD=require('../index')
 
-fs.readFile('C:\\Users\\negrero\\workspace\\tachograph-structure\\76e.TGD',
+fs.readFile('C:\\Users\\negrero\\workspace\\tachograph-structure\\C_E10858690E000002_E_20150809_2121.TGD',
 //fs.readFile('path/file.tgd',
     function (err, data) {
     if (err) {
@@ -27,6 +27,11 @@ fs.readFile('C:\\Users\\negrero\\workspace\\tachograph-structure\\76e.TGD',
             if(err){
                 console.log(err)
             }else{
+                var json=JSON.parse(data)
+                json.cardBlockFile.tachos.activity.forEach(function(e){
+                    if (e.registration==null && e.cardNumber==null)
+                            console.log()
+                })
                 console.log(data)
             }
 
