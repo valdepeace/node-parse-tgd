@@ -9,6 +9,7 @@ java_default.classpath.push(path.resolve(__dirname, "./lib-java/lib-tgd.jar"));
 java_default.classpath.push(path.resolve(__dirname, "./lib-java/jackson-annotations-2.5.1.jar"));
 java_default.classpath.push(path.resolve(__dirname, "./lib-java/jackson-core-2.5.1.jar"));
 java_default.classpath.push(path.resolve(__dirname, "./lib-java/jackson-databind-2.5.1.jar"));
+java_default.classpath.push(path.resolve(__dirname, "./lib-java/joda-time-2.9.3.jar"));
 java_default.classpath.push("commons-lang3-3.1.jar");
 java_default.classpath.push("commons-io.jar");
 var java = java_default
